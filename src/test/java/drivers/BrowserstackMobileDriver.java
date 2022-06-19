@@ -10,18 +10,32 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
-
+/*
+ "server": "hub-cloud.browserstack.com",
+    "username": "bsuser_zB7OhS",
+    "access_key": "yjW2gs4QfhiTDpfJZgyk",
+    "capabilities": {
+      "project": "First Junit5 Android Project",
+      "build": "Junit5 Android First",
+      "name": "first_test",
+      "browserstack.debug": true,
+      "app": "bs://ee714901a6bef9d1429d8afe111b9342ea5bd996"
+    },
+    "environments": [{
+      "device": "Google Pixel 3",
+      "os_version":  "9.0"
+ */
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
         // Set your access credentials
-        mutableCapabilities.setCapability("browserstack.user", "autotestscloud_qAejV5");
-        mutableCapabilities.setCapability("browserstack.key", "DkvhzD6ZSLTsxYERedAR");
+        mutableCapabilities.setCapability("browserstack.user", "bsuser_zB7OhS");
+        mutableCapabilities.setCapability("browserstack.key", "yjW2gs4QfhiTDpfJZgyk");
 
         // Set URL of the application under test
 //        mutableCapabilities.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
-        mutableCapabilities.setCapability("app", "bs://528f21c2bc4464c22805e226e72bdb2300359966");
+        mutableCapabilities.setCapability("app", "bs://ee714901a6bef9d1429d8afe111b9342ea5bd996");
 
         // Specify device and os_version for testing
         mutableCapabilities.setCapability("device", "Google Pixel 3");
