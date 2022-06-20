@@ -28,6 +28,7 @@ public class MyTest extends TestBase {
         $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(text(value));
         $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description"))
                 .shouldHave(Condition.text("Country in Southern Europe"));
-        $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).exclude(text("USA"));
+        //$$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).exclude(text("USA")); не подходит по смыслу и требует проверки shouldNotHave
+        $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).shouldNotHave(text("USA"));
     }
 }
