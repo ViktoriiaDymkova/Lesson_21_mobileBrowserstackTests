@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class MyTest extends TestBase {
+public class HomeworkTest extends TestBase {
 
     @Tag("android")
     @Test
@@ -25,10 +25,13 @@ public class MyTest extends TestBase {
         });
         step("Verify content found", () ->
                 $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(CollectionCondition.sizeGreaterThan(0)));
-        $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(text(value));
+        step("Verify content found", () ->
+                $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(text(value)));
+        step("Verify content found", () ->
         $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description"))
-                .shouldHave(Condition.text("Country in Southern Europe"));
-        //$$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).exclude(text("USA")); не подходит по смыслу и требует проверки shouldNotHave
-        $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).shouldNotHave(text("USA"));
+                .shouldHave(Condition.text("Country in Southern Europe")));
+        step("Verify content found", () ->
+                $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).shouldNotHave(text("USA")));
     }
 }
+//$$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).exclude(text("USA")); не подходит по смыслу и требует проверки shouldNotHave
