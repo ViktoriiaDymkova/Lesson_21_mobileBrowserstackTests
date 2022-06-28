@@ -23,15 +23,12 @@ public class HomeworkTest extends TestBase {
             $(AppiumBy.id("org.wikipedia.alpha:id/search_container")).click();
             $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys(value);
         });
-        step("Verify content found", () ->
-                $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(CollectionCondition.sizeGreaterThan(0)));
-        step("Verify content found", () ->
-                $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(text(value)));
-        step("Verify content found", () ->
-        $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description"))
-                .shouldHave(Condition.text("Country in Southern Europe")));
-        step("Verify content found", () ->
-                $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).shouldNotHave(text("USA")));
+        step("Verify content found", () -> {
+            $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(CollectionCondition.sizeGreaterThan(0));
+            $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(text(value));
+            $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).shouldHave(Condition.text("Country in Southern Europe"));
+            $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).shouldNotHave(text("USA"));
+        });
     }
 }
 //$$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_description")).exclude(text("USA")); не подходит по смыслу и требует проверки shouldNotHave
