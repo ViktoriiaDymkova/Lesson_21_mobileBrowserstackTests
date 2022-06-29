@@ -25,8 +25,12 @@
 <img width="1372" alt="Снимок экрана 2022-06-21 в 18 38 02" src="https://user-images.githubusercontent.com/102670016/174841627-29427a46-fa71-43a0-886c-41e0eb0a8432.png">
 
 
+
+
+
 Важно! В BrowserstackMobileDriver в капабидити имя и ключ вызываются такой конструкцией : browserstack.user, ни смотря на то, что ключ username
 
-
+```
   mutableCapabilities.setCapability("browserstack.user", username);
   mutableCapabilities.setCapability("browserstack.key", access_key);
+  ```
